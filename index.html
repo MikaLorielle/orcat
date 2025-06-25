@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORCatLang</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+body {
+  transition: background-color 0.3s, color 0.3s;
+  background: linear-gradient(135deg, #2e026d, #d63384);
+}
+.frosted {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 1rem 1rem;
+}
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+}
+.card:hover {
+  transform: perspective(800px) rotateY(5deg) rotateX(5deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}html {
+  scroll-behavior: smooth;
+}
+
+a, button {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease-in-out,
+    background-position 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.6s ease-in-out,
+    color 0.6s ease-in-out;
+  
+  will-change: transform, background-position, background-color, color;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+a:hover, button:hover {
+  transform: scale(1.05);
+}
+
+.fancy-button {
+  background: linear-gradient(90deg, #d946ef, #db2777);
+  background-size: 200% 100%;
+  background-position: left center;
+}
+
+.fancy-button:hover {
+  background-position: right center;
+}
+
+.btn-effect {
+  background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+  background-size: 200% 100%;
+  background-position: left center;
+}
+
+.btn-effect:hover {
+  background-position: right center;
+}
+
+
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+  </style>
+</head>
+<body class="text-white relative font-sans" id="body">
+  <canvas id="snow"></canvas>
+  <header class="frosted sticky top-0 z-50 p-4 flex justify-between items-center">
+    <a href="#" class="flex items-center gap-3">
+        <img id="logo-sequence" src="ORCC.png" alt="ORCatLang Logo" class="w-10 h-10 transition-transform duration-300 ease-out transform scale-100">
+      <h1 class="text-2xl font-bold text-pink-400">ORCatLang</h1>
+    </a>
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/MikaLorielle/Orcat-Lang" target="_blank" class="text-sm px-3 py-1 rounded-lg btn-effect">GitHub</a>
+      <a href="#download" class="text-sm px-3 py-1 rounded-lg fancy-button">Download</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 px-6 py-16 max-w-6xl mx-auto space-y-20">
+    <section class="text-center space-y-4">
+      <h2 class="text-4xl font-bold text-pink-200">Welcome to ORCatLang</h2>
+      <p class="text-lg text-pink-100">A tiny, powerful, compiled language designed for speed and extensibility. Built for developers who demand performance without sacrificing "style".</p>
+    </section>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">⚡ Blazing Fast Compilation</h2>
+        <p>Compile projects in milliseconds with zero runtime overhead.</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🧱 Minimal Footprint</h2>
+        <p>ORCatLang’s compiler weighs in at just <strong>~2K lines</strong>. Tiny but powerfull.</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🔗 Seamless C Interop</h2>
+        <p>Extend the language with <strong>native C code</strong> seamlessly, unlike many other compiled languages.</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">📦 Generic Functions</h2>
+        <p>Write reusable, type-safe code with full generic function support — something C lacks!</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🍞 Crumb System</h2>
+        <p>Limit variable usage with <code>crumble(variable)!r=3!w=4;</code> to enforce safe access rules. (omitted values become unlimited)</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🔒 Strong Typing</h2>
+        <p>Strictly typed with a focus on <strong>code safety</strong> — helping you prevent bugs before they happen.</p>
+      </div>
+    </section>
+
+    <section class="text-center space-y-4">
+      <h2 class="text-3xl font-bold text-pink-200">Built by Developers, for Developers</h2>
+      <p class="text-pink-100">ORCatLang is implemented in Python, compiled using Nuitka, and structured with simplicity in mind. From its friendly syntax to fast scaffolding, it’s made to keep you focused.</p>
+    </section>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🛠 Built in Python with Nuitka</h2>
+        <p>Compiler implemented in Python and compiled using <strong>Nuitka</strong> for performance and portability.</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🐾 Modern, Familiar Syntax</h2>
+        <p>Learn once, write fast, see the internals. Designed to be "intuitive" for the modern developer.</p>
+      </div>
+    </section>
+    <section id="download" class="text-center py-20">
+      <h2 class="text-3xl font-bold mb-4 text-pink-200">Get Started with ORCatLang</h2>
+      <p class="mb-6 text-pink-100">Ready to code in it? Download the latest version or check out the source code on GitHub.</p>
+      <p class="mb-6 text-pink-100">To use the installer (Linux only for now) move the installer to the dir you choose and run: </br> <code> ocat ossemble</code> </p> 
+      <a href="https://github.com/MikaLorielle/Orcat-Lang/releases/download/ORCC-BETA-NEWGEN/ocat" class="px-6 py-3 rounded-full text-lg font-semibold fancy-button">Download Now</a>
+    </section>
+  </main>
+
+  <script>
+    const canvas = document.getElementById('snow');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    let particles = [];
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < 150; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2,
+        d: Math.random() * 1
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      ctx.beginPath();
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        ctx.moveTo(p.x, p.y);
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+      }
+      ctx.fill();
+      update();
+    }
+
+    function update() {
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.y += p.d;
+        if (p.y > h) {
+          p.y = 0;
+          p.x = Math.random() * w;
+        }
+      }
+    }
+
+    function loop() {
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+  </script>
+  <script>
+  const logo = document.getElementById("logo-sequence");
+
+  const sequence = [
+    { type: "emoji", content: "🐋" },
+    { type: "emoji", content: "🐱" },
+    { type: "img", content: "ORCC.png" }
+  ];
+
+  let index = 0;
+
+  function bounceLogo(next) {
+    logo.classList.remove("scale-100");
+    logo.classList.add("scale-75");
+
+    setTimeout(() => {
+      if (next.type === "emoji") {
+        logo.src = `data:image/svg+xml;charset=utf-8,` + encodeURIComponent(
+          `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><text x="0" y="32" font-size="32">${next.content}</text></svg>`
+        );
+      } else {
+        logo.src = next.content;
+      }
+
+      logo.classList.remove("scale-75");
+      logo.classList.add("scale-125");
+
+      setTimeout(() => {
+        logo.classList.remove("scale-125");
+        logo.classList.add("scale-100");
+      }, 200);
+
+    }, 200);
+  }
+
+  function loopLogo() {
+    bounceLogo(sequence[index % sequence.length]);
+    index++;
+
+    if (index % sequence.length === 0) {
+      setTimeout(loopLogo, 5000);
+    } else {
+      setTimeout(loopLogo, 1000);
+    }
+  }
+
+  loopLogo();
+</script>
+
+</body>
+</html>
