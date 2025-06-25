@@ -69,6 +69,24 @@ a:hover, button:hover {
   background-position: right center;
 }
 
+@keyframes slideUpFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up-fade-in {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-name: slideUpFadeIn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
 
 
 canvas {
@@ -253,6 +271,19 @@ canvas {
   }
 
   loopLogo();
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const elementsToAnimate = [
+      ...document.querySelectorAll('main > section'),
+      ...document.querySelectorAll('.card')
+    ];
+
+    elementsToAnimate.forEach((el, i) => {
+      el.classList.add('slide-up-fade-in');
+      el.style.animationDelay = `${i * 200}ms`;
+    });
+  });
 </script>
 
 </body>
