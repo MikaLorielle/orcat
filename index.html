@@ -41,7 +41,7 @@ a, button {
     background-position 0.8s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.6s ease-in-out,
     color 0.6s ease-in-out;
-  
+
   will-change: transform, background-position, background-color, color;
   backface-visibility: hidden;
   transform-style: preserve-3d;
@@ -112,6 +112,7 @@ canvas {
       <h1 class="text-2xl font-bold text-pink-400">ORCatLang</h1>
     </a>
     <div class="flex items-center gap-4">
+      <span class="text-sm sm:text-base italic text-pink-200 whitespace-nowrap">String like an ORCa, Precise like a CAT.</span>
       <a href="https://github.com/MikaLorielle/Orcat-Lang" target="_blank" class="text-sm px-3 py-1 rounded-lg btn-effect">GitHub</a>
       <a href="#download" class="text-sm px-3 py-1 rounded-lg fancy-button">Download</a>
     </div>
@@ -129,24 +130,36 @@ canvas {
         <p>Compile projects in milliseconds with zero runtime overhead. In fact, the C extension is optional and extendible.</p>
       </div>
       <div class="card p-6 rounded-2xl">
-        <h2 class="text-xl font-semibold mb-2 text-pink-300">🧱 Minimal Footprint</h2>
-        <p>ORCatLang’s compiler weighs in at just <strong>~2K lines</strong>. Tiny but powerfull.</p>
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🧱 Small, Strong, and fast ⚡</h2>
+        <p>ORCatLang’s compiler only has about <strong>~2.1K lines</strong>. Tiny but powerful.</p>
       </div>
       <div class="card p-6 rounded-2xl">
-        <h2 class="text-xl font-semibold mb-2 text-pink-300">🔗 Seamless C Interop</h2>
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🔗 C Interop like a native builtin</h2>
         <p>Extend the language with <strong>native C code</strong> seamlessly, unlike many other compiled languages.</p>
       </div>
       <div class="card p-6 rounded-2xl">
-        <h2 class="text-xl font-semibold mb-2 text-pink-300">📦 Generic Functions</h2>
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">📦 Generic Functions 🛠️</h2>
         <p>Write reusable, type-safe code with full generic function support, something C lacks!</p>
       </div>
       <div class="card p-6 rounded-2xl">
-        <h2 class="text-xl font-semibold mb-2 text-pink-300">🍞 Crumb System</h2>
-        <p>Limit variable usage with <code>crumble(variable)!r=3!w=4;</code> to enforce safe access rules. (omitted values become unlimited)</p>
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🔒 Crumb System 🛡 ️</h2>
+        <p>First quantitative access model concept. </br> Example: <code>crumble(variable)!r=3!w=4;</br></code> enforces counted access to reads and writes. </br> *(omitted values become unlimited)</p>
       </div>
       <div class="card p-6 rounded-2xl">
-        <h2 class="text-xl font-semibold mb-2 text-pink-300">🔒 Strong Typing</h2>
-        <p>Strictly typed with a focus on <strong>code safety</strong>, helping you prevent bugs before they happen.</p>
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">💪 Strong Typing</h2>
+        <p>Strictly typed with a focus on <strong>code safety</strong>, helping you prevent bugs before they even happen.</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🧬 Structs and Enum support</h2>
+        <p>Has basic structs and enums for structure. </br> Basic because the compiler is under heavy development solo.</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">👉 Pointer support 🧰</h2>
+        <p>Added pointer support to replace and fix the old memory access methods. </br> Previously was using ints. now using * pointers.</p>
+      </div>
+      <div class="card p-6 rounded-2xl">
+        <h2 class="text-xl font-semibold mb-2 text-pink-300">🚧 Safety features ✨</h2>
+        <p>Injects a runtime checker to check arrays to prevent out of bounds. </br> The compiler swiftly STOPS double frees or use after frees.</p>
       </div>
     </section>
 
@@ -168,7 +181,7 @@ canvas {
     <section id="download" class="text-center py-20">
       <h2 class="text-3xl font-bold mb-4 text-pink-200">Get Started with ORCatLang</h2>
       <p class="mb-6 text-pink-100">Ready to code in it? Download the latest version or check out the source code on GitHub.</p>
-      <p class="mb-6 text-pink-100">To use the installer (Linux only for now) move the installer to the dir you choose and run: </br> <code> ocat ossemble</code> </p> 
+      <p class="mb-6 text-pink-100">To use the installer (Linux only for now) move the installer to the dir you choose and run: </br> <code> ocat ossemble</code> </p>
       <a href="https://github.com/MikaLorielle/Orcat-Lang/releases/download/ORCC-BETA-NEWGEN/ocat" class="px-6 py-3 rounded-full text-lg font-semibold fancy-button">Download Now</a>
     </section>
   </main>
