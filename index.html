@@ -191,7 +191,7 @@ canvas {
 <pre class="overflow-x-auto text-sm rounded-md text-white language-c"><code class="language-c">
   // ORCatLang Syntax:
   import C_io; /*or import "C_io.sorcat"; if you need to specify the filename*/
-
+  import "C_types.sorcat"; // legacy import system for name conflicts will always be supported.
   // externing C functions or llvm clang builtins do the following:
   pub extern fn puts(string b)   &lt;void&gt;;
   // string, int (int64), int8, int16, int32, int64, bool, float, void;
