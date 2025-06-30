@@ -232,19 +232,23 @@ canvas {
     string[7] arrayof7;
     string[2] arrayof2 = ["test", "test"];
     print(arrayof2[2]);
-
+    
     // nomd keyword means no modify. So Immutable variables.
     // pin keyword are globals. should only be used on top scope.
     // also pointers and generics are supported.
     // NEW FEATURE: compile time type replacement.
     string e = typeof(f);
-    print(typeof(f)); newline();
-    // typeof(f) gets replaced with f.
-    // what exists: simple typeof(var)
-    // etypeof(var) returns the actual size EX: "int8", "int16"
-    // adding kw makes it not return a string but return a keyword.
-    // kwtypeof(var) returns int not "int" like typeof(var).
-    // kwetypeof(var does the same with "explicit" typeof.)
+    print(typeof(f)); newline(); 
+    /*
+     you can use \n and all else escape chars. 
+     I just made newline(); for simplicity.
+     typeof(f) gets replaced with f.
+     what exists: simple typeof(var)
+     etypeof(var) returns the actual size EX: "int8", "int16"
+     adding kw makes it not return a string but return a keyword.
+     kwtypeof(var) returns int not "int" like typeof(var).
+     kwetypeof(var does the same with "explicit" typeof.)
+    */
   }
 </code></pre>
       </div>
